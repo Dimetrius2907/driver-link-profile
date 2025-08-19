@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Driver Link – Mobile</title>
+
+  <style>
+    :root{
+      --brand:#0A66C2; --brand-600:#084d91;
+      --bg:#F3F2EF; --card:#FFFFFF; --line:#E5E7EB;
+      --text:#172B4D; --muted:#5B6B7A;
+      --icon:20px; --shadow:0 8px 20px rgba(17,24,39,.06);
+      --gradient:linear-gradient(135deg,#667eea,#764ba2);
+      --gradient-blue:linear-gradient(135deg,#667eea,#764ba2);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--text);font-size:15px;line-height:1.45;width:100%;overflow-x:hidden;min-height:100vh}
+
+    /* Topbar - NOWY STYL LINKEDIN */
+    .topbar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line);
+      backdrop-filter:saturate(140%) blur(6px);padding:8px 12px;display:flex;gap:8px;align-items:center;width:100%}
+    body.scrolled .topbar{box-shadow:0 2px 12px rgba(17,24,39,.08)}
+    .back-btn{border:none;background:transparent;padding:8px;cursor:pointer;color:var(--text)}
+    .icon-btn{border:1px solid var(--line);background:#fff;min-width:44px;min-height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.15s}
+    .icon-btn:hover{border-color:#D0D7DE;background:#f8fafc}
+    .icon-btn .ico{width:20px;height:20px;stroke:var(--text);stroke-width:2}
+    .searchbar{flex:1;display:flex;gap:8px;align-items:center;background:#EEF3F8;border:1px solid #DFE7EE;border-radius:24px;padding:8px 12px}
+    .searchbar input{border:none;background:transparent;outline:none;width:100%;color:var(--text);font-size:16px}
+    .settings-btn{border:none;background:transparent;padding:8px;cursor:pointer;color:var(--text)}
+
+    /* Layout */
+    .container{max-width:100%;margin:0 auto;padding:0;width:100%;box-sizing:border-box}
+    .grid{display:grid;gap:12px}
+    .card,.post{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+    .card{padding:12px}
+    .meta{color:var(--muted)}
+
+    /* Post */
+    .post{padding:12px;width:100%;box-sizing:border-box}
+    .post-head{display:flex;gap:10px;align-items:center;justify-content:space-between}
+    .post-author{display:flex;gap:10px;align-items:center}
+    .avatar{width:44px;height:44px;border-radius:999px;background:#e5e7eb;box-shadow:inset 0 0 0 2px #fff,0 0 0 2px #EEF3F8}
+    .post-body{margin:8px 0}
+    .post a{color:var(--brand);text-decoration:none}
+    .post a:hover{text-decoration:underline}
+    .post-img{width:100%;aspect-ratio:4/3;border-radius:10px;background-size:cover;background-position:center}
+    .react-bar{display:flex;justify-content:space-between;align-items:center;margin-top:8px;flex-wrap:wrap;gap:8px}
+    .react-counts{color:var(--muted);font-size:13px;display:flex;gap:14px;flex-wrap:wrap}
+    .react-actions{display:flex;gap:8px;flex-wrap:wrap}
+    .react-btn{display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 12px;color:#5B6B7A;transition:.15s;font-size:14px;min-height:44px}
+    .react-btn:hover{border-color:#D0D7DE}
+    .react-btn.active{color:var(--brand);border-color:#BBD3F6;background:#EEF3F8}
+    .react-btn .ico{width:18px;height:18px}
+
+    /* Footer nav – BEZ „Profilu/Galerii" */
+    .footer{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding-bottom:6px;width:100%;z-index:10}
+    .tabs{max-width:100%;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);text-align:center;box-sizing:border-box}
+    .tab{padding:8px 6px;text-decoration:none;color:#5B6B7A;display:flex;flex-direction:column;gap:3px;align-items:center;position:relative;min-height:44px;min-width:44px}
+    .tab:hover{color:#334155}
+    .tab.active{color:var(--brand);font-weight:700}
+    .tab .label{font-size:12px;letter-spacing:.1px}
+    .ico{width:var(--icon);height:var(--icon);stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .badge{position:absolute;top:2px;right:22px;transform:translateY(-1px);background:#E02424;color:#fff;border-radius:999px;font-size:10px;line-height:1;padding:3px 5px}
+
+    /* Profil - NOWY STYL LINKEDIN */
+    .profile{display:grid;gap:0;width:100%}
+    
+          /* Banner */
+      .banner{height:200px;background:url('FOTO-BASE/BACK.jpg') center/cover no-repeat;position:relative;border-radius:0}
+    @keyframes gradientShift{0%,100%{background:var(--gradient)}50%{background:var(--gradient-blue)}}
+    .banner-edit{position:absolute;top:12px;right:12px;background:rgba(0,0,0,0.6);color:white;border:none;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+    
+    /* Profile header - NOWY STYL */
+    .profile-header{background:white;padding:0 16px 16px;position:relative}
+    .profile-avatar{width:152px;height:152px;border-radius:50%;background:#e5e7eb;border:4px solid #fff;box-shadow:0 0 0 4px #fff;position:absolute;top:-76px;left:16px}
+    .profile-actions{position:absolute;top:12px;right:16px;display:flex;gap:8px}
+    .linkedin-badge{width:32px;height:32px;background:#E7A33E;border-radius:4px;display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;font-size:12px}
+    .edit-profile-btn{width:32px;height:32px;background:white;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer}
+    
+    /* Profile info - NOWY STYL */
+    .profile-info{margin-top:80px}
+    .profile-name{font-size:24px;font-weight:700;margin:0 0 8px 0;color:var(--text)}
+    .verification-badge{color:#1d9bf0;font-size:20px;font-weight:bold;margin-left:4px;background:#ffffff;border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,0.1)}
+    .verification-btn{background:white;border:1px solid var(--brand);color:var(--brand);padding:6px 16px;border-radius:16px;font-size:14px;font-weight:600;margin-bottom:12px;cursor:pointer}
+    .profile-description{font-size:14px;line-height:1.4;margin-bottom:12px;color:var(--text)}
+    .profile-details{font-size:14px;color:var(--muted);margin-bottom:8px}
+    .profile-contacts{color:var(--brand);font-size:14px;font-weight:600;cursor:pointer}
+    
+    /* Action buttons - NOWY STYL */
+    .action-buttons{display:flex;gap:8px;margin:16px 0;flex-wrap:wrap}
+    .btn-primary{background:var(--brand);color:white;border:none;padding:6px 16px;border-radius:12px;font-size:13px;font-weight:600;cursor:pointer;width:auto;min-width:auto;transition:all 0.3s ease;box-shadow:0 2px 6px rgba(10,102,194,0.3)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(10,102,194,0.4)}
+    .btn-secondary{background:white;border:1px solid var(--line);color:var(--text);padding:6px 16px;border-radius:16px;font-size:14px;font-weight:600;cursor:pointer}
+    .btn-more{background:white;border:1px solid var(--line);color:var(--text);padding:6px 12px;border-radius:16px;font-size:14px;cursor:pointer}
+    .btn-custom{background:white;border:1px solid var(--line);color:var(--text);padding:6px 16px;border-radius:16px;font-size:14px;font-weight:600;cursor:pointer;width:100%;margin-top:8px}
+
+    /* Profile sections - NOWY STYL */
+    .profile-sections{background:white;margin-top:8px}
+    .section{background:white;border-bottom:1px solid var(--line);padding:16px}
+    .section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+    .section-title{font-size:18px;font-weight:700;color:var(--text)}
+    .section-actions{display:flex;gap:8px}
+    .section-action{background:transparent;border:none;color:var(--brand);cursor:pointer;padding:4px}
+    
+    /* Activity section */
+    .languages-list{display:flex;flex-direction:column;gap:0}
+    .language-item{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid #f0f0f0;transition:all 0.3s ease}
+    .language-item:last-child{border-bottom:none}
+    .language-item:hover{background:#f8f9fa;margin:0 -12px;padding:12px}
+    .language-info{flex:1;min-width:0}
+    .language-name{font-size:14px;font-weight:600;color:#1f2937;margin-bottom:2px}
+    .language-level{font-size:13px;color:#6b7280;line-height:1.3;margin-bottom:2px}
+    .language-verification{font-size:13px;color:#6b7280}
+    .duolingo-badge{display:flex;align-items:center;gap:6px;background:#58cc02;color:white;padding:4px 8px;border-radius:12px;font-size:11px;font-weight:600}
+    .duolingo-icon{width:16px;height:16px;filter:brightness(0) invert(1)}
+    .duolingo-text{font-size:11px;font-weight:600}
+    .friends-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+    .friends-count{font-size:14px;font-weight:600;color:#1f2937}
+    .friends-search{font-size:14px;color:#1877f2;cursor:pointer}
+    .friends-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px}
+    .friend-card{display:flex;flex-direction:column;align-items:center;text-align:center;cursor:pointer;transition:all 0.2s ease}
+    .friend-card:hover{transform:translateY(-2px)}
+    .friend-avatar{width:80px;height:80px;border-radius:8px;margin-bottom:8px;border:2px solid #f0f0f0}
+    .friend-name{font-size:13px;font-weight:600;color:#1f2937;margin-bottom:2px;line-height:1.2}
+    .friend-status{font-size:11px;color:#6b7280;line-height:1.2}
+    .show-all-friends{margin-top:16px}
+    .show-friends-btn{width:100%;padding:12px;background:#f0f2f5;border:none;border-radius:8px;font-size:14px;font-weight:600;color:#1f2937;cursor:pointer;transition:all 0.2s ease}
+    .show-friends-btn:hover{background:#e4e6eb}
+    .profile-tabs{display:flex;border-bottom:1px solid #f0f0f0;margin-bottom:16px}
+    .profile-tab{flex:1;padding:12px;background:none;border:none;font-size:14px;font-weight:600;color:#6b7280;cursor:pointer;transition:all 0.2s ease;border-bottom:2px solid transparent}
+    .profile-tab.active{color:#1877f2;border-bottom-color:#1877f2}
+    .profile-tab:hover{background:#f8f9fa}
+    .activity-list{display:flex;flex-direction:column;gap:0}
+    .activity-item{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid #f0f0f0;transition:all 0.3s ease}
+    .activity-item:last-child{border-bottom:none}
+    .activity-item:hover{background:#f8f9fa;margin:0 -12px;padding:12px}
+    .activity-title{font-size:14px;font-weight:600;color:#1f2937}
+    .activity-subtitle{font-size:13px;color:#6b7280;text-align:right}
+    .no-posts{color:var(--muted);font-size:14px;margin-bottom:8px}
+    .show-activity{color:var(--brand);font-size:14px;font-weight:600;cursor:pointer}
+    
+    /* Posts styling */
+    .post{background:white;border-radius:20px;padding:20px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);border:1px solid #f0f0f0;transition:all 0.3s ease}
+    .post:hover{box-shadow:0 4px 12px rgba(0,0,0,0.08);transform:translateY(-1px)}
+    .post-img{height:200px;background-size:cover;background-position:center;border-radius:16px;margin:12px 0}
+    .post-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
+    .post-author{display:flex;gap:12px;align-items:flex-start}
+    .avatar{width:48px;height:48px;border-radius:50%;background:#e5e7eb;flex-shrink:0}
+    .post-body{font-size:15px;line-height:1.5;color:var(--text);margin-bottom:12px}
+    .react-bar{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:16px;border-top:1px solid #f0f0f0}
+    .react-counts{display:flex;gap:16px;color:var(--muted);font-size:14px}
+    .react-actions{display:flex;gap:8px;flex-wrap:wrap}
+    .react-btn{display:flex;align-items:center;gap:8px;border:1px solid #f0f0f0;background:#fff;border-radius:12px;padding:10px 16px;color:#5B6B7A;transition:all 0.3s ease;font-size:14px;min-height:44px;font-weight:500}
+    .react-btn:hover{border-color:#D0D7DE;background:#f8f9fa;transform:translateY(-1px)}
+    .react-btn.active{color:var(--brand);border-color:#BBD3F6;background:#EEF3F8}
+    .react-btn .ico{width:18px;height:18px}
+    
+         /* Experience section */
+    .section{background:white;border-radius:20px;padding:20px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);border:1px solid #f0f0f0}
+           .experience-item{display:flex;gap:12px;margin-bottom:16px;align-items:flex-start;padding:12px;background:#fafafa;border-radius:12px;border:1px solid #f0f0f0;transition:all 0.3s ease}
+      .experience-item:hover{background:#f8f9fa;box-shadow:0 4px 12px rgba(0,0,0,0.08);transform:translateY(-2px)}
+      .company-icon{width:48px;height:48px;background:linear-gradient(135deg,#dbeafe,#eef2ff);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;border:1px solid #ffffff;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
+      .company-icon img{width:100%;height:100%;object-fit:cover;border-radius:7px}
+           .experience-details h4{font-size:14px;font-weight:700;margin:0 0 4px 0;color:#1f2937;letter-spacing:-0.025em}
+      .company-location{font-size:12px;color:#1f2937;font-weight:400;margin-left:8px}
+      .experience-details .company{color:var(--brand);font-size:12px;margin-bottom:4px;font-weight:500}
+      .experience-details .vehicles{color:#1f2937;font-size:13px;margin-bottom:4px}
+      .experience-details .cargo{color:#1f2937;font-size:13px;margin-bottom:4px}
+      .experience-details .duration{color:#1f2937;font-size:12px;margin-bottom:6px;font-weight:500}
+     .experience-details .location{color:var(--muted);font-size:14px}
+           .category{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:14px}
+      .category-icon{color:var(--text);font-size:12px}
+      .category-text{color:var(--text);font-size:14px;font-weight:600}
+      .routes{color:#1f2937;font-size:12px;margin-top:4px}
+      .category-select{border:none;background:transparent;color:var(--text);font-size:14px;font-weight:600;cursor:pointer;outline:none}
+      .category-select option{background:white;color:var(--text)}
+      .hidden{display:none}
+      
+      /* Skills section */
+      .skills-list{display:flex;flex-direction:column;gap:0}
+      .skill-item{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid #f0f0f0;transition:all 0.3s ease}
+      .skill-item:last-child{border-bottom:none}
+      .skill-item:hover{background:#f8f9fa;margin:0 -12px;padding:12px}
+      .skill-title{font-size:14px;font-weight:600;color:#1f2937}
+      .skill-subtitle{font-size:13px;color:#6b7280;text-align:right}
+      
+      /* Documents section */
+      .documents-list{display:flex;flex-direction:column;gap:0}
+      .document-item{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid #f0f0f0;transition:all 0.3s ease}
+      .document-item:last-child{border-bottom:none}
+      .document-item:hover{background:#f8f9fa;margin:0 -12px;padding:12px}
+      .document-title{font-size:14px;font-weight:600;color:#1f2937}
+      .document-subtitle{font-size:13px;color:#6b7280;text-align:right}
+    
+    /* Education section */
+    .education-item{display:flex;gap:16px;margin-bottom:20px;align-items:flex-start;padding:16px;background:#fafafa;border-radius:16px;border:1px solid #f0f0f0;transition:all 0.3s ease}
+    .education-item:hover{background:#f8f9fa;box-shadow:0 2px 8px rgba(0,0,0,0.06);transform:translateY(-1px)}
+    .school-icon{width:60px;height:60px;background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;text-align:center;font-weight:bold;color:#92400e;border:2px solid #ffffff;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
+    
+    /* Interests section */
+    .interests-tabs{display:flex;gap:0;border-bottom:1px solid #f0f0f0;margin-bottom:20px;background:#fafafa;border-radius:12px;padding:4px}
+    .interest-tab{flex:1;background:transparent;border:none;padding:12px 16px;font-size:14px;font-weight:600;cursor:pointer;border-radius:8px;transition:all 0.3s ease;color:#6b7280}
+    .interest-tab:hover{background:#f3f4f6;color:#374151}
+    .interest-tab.active{color:var(--brand);background:white;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
+
+    .hide{display:none}
+
+    /* Responsywność */
+    @media (min-width: 768px) {
+      .container { max-width: 700px; }
+      .tabs { max-width: 700px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SVG sprite -->
+  <svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3-3"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5M5 10v10h14V10"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="11" r="3"/><path d="M2 21c0-3.3 2.7-6 6-6M12 21c0-3.3 2.7-6 6-6"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 16v-5a6 6 0 10-12 0v5l-2 2h16l-2-2"/><path d="M9 20a3 3 0 006 0"/></symbol>
+    <symbol id="i-brief" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></symbol>
+    <symbol id="i-like" viewBox="0 0 24 24"><path d="M14 9V4a2 2 0 00-2-2l-3 7H4a2 2 0 00-2 2v8a2 2 0 002 2h9a2 2 0 001.9-1.37l3.1-9.3A2 2 0 0016.1 8H14z"/></symbol>
+    <symbol id="i-comment" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H8l-5 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><path d="M4 12v7a2 2 0 002 2h12a2 2 0 002-2v-7M16 6l-4-4-4 4M12 2v14"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></symbol>
+  </svg>
+
+  <!-- Topbar - NOWY STYL LINKEDIN -->
+  <header class="topbar">
+    <button class="back-btn" onclick="nav('home')" title="Wstecz">
+      <svg class="ico"><use href="#i-arrow-left"/></svg>
+    </button>
+    <button class="icon-btn" onclick="nav('me')" title="Profil">
+      <svg class="ico"><use href="#i-user"/></svg>
+    </button>
+    <div class="searchbar">
+      <svg class="ico"><use href="#i-search"/></svg>
+      <input placeholder="Dimitrii Moskalenko" />
+    </div>
+    <button class="settings-btn" title="Ustawienia">
+      <svg class="ico"><use href="#i-settings"/></svg>
+    </button>
+  </header>
+
+  <main class="container">
+    <!-- FEED -->
+    <section id="home" class="grid">
+      <article class="post" data-liked="0">
+        <div class="post-head"><div class="post-author"><div class="avatar"></div><div><div><b>Fleet Ops</b> · <span class="meta">TSL</span></div><div class="meta">19 h · 🌍</div></div></div><button class="icon-btn">+ Obserwuj</button></div>
+        <div class="post-body">Uruchomiliśmy 20 nowych zestawów C+E na trasie PL‑DE. Pierwsze załadunki w Poznaniu, rozładunki w Berlinie i Hamburgu.</div>
+        <div class="post-img" style="background-image:url('https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=800&h=600&fit=crop');"></div>
+        <div class="react-bar"><div class="react-counts"><span><b class="count-like">2716</b> poleceń</span><span><b class="count-comment">189</b> komentarzy</span><span><b class="count-share">10</b> udostępnień</span></div>
+          <div class="react-actions"><button class="react-btn btn-like" data-action="like"><svg class="ico"><use href="#i-like"/></svg><span>Poleć</span></button>
+          <button class="react-btn btn-comment" data-action="comment"><svg class="ico"><use href="#i-comment"/></svg><span>Skomentuj</span></button>
+          <button class="react-btn btn-share" data-action="share"><svg class="ico"><use href="#i-share"/></svg><span>Udostępnij</span></button></div></div>
+      </article>
+    </section>
+
+    <!-- PROFIL - NOWY STYL LINKEDIN -->
+    <section id="me" class="profile hide">
+      <!-- Banner -->
+      <div class="banner">
+        <button class="banner-edit" title="Edytuj tło">
+          <svg class="ico"><use href="#i-camera"/></svg>
+        </button>
+      </div>
+
+      <!-- Profile header -->
+      <div class="profile-header">
+        <div class="profile-avatar" style="background:#cbd5e1 url('FOTO-BASE/photo5.jpg') center/cover no-repeat"></div>
+        <div class="profile-actions">
+          <div class="linkedin-badge">in</div>
+          <button class="edit-profile-btn" title="Edytuj profil">
+            <svg class="ico"><use href="#i-edit"/></svg>
+          </button>
+        </div>
+
+        <!-- Profile info -->
+        <div class="profile-info">
+                      <h1 class="profile-name">JUN POTANE <span class="verification-badge">✓</span></h1>
+          <p class="profile-description">Od lat w trasie – trochę po Azji, trochę po Europie. Kierownica to mój drugi dom, a ciężarówka najlepszy kompan do rozmów 😉. Znam autostrady lepiej niż własne podwórko i zawsze mam pod ręką dobry żart, żeby droga szybciej mijała. Lubię proste zasady: punktualnie, bezpiecznie i z uśmiechem. Dla mnie to nie tylko praca, ale i styl życia.</p>
+          
+          <div class="profile-details">Poznań, Woj. Wielkopolskie, Polska</div>
+          <div class="profile-contacts">26 kontaktów</div>
+        </div>
+
+        <!-- Action buttons -->
+        <div class="action-buttons">
+          <button class="btn-primary">Otwarty(-a) na</button>
+        </div>
+      </div>
+
+      <!-- Profile sections -->
+      <div class="profile-sections">
+        <!-- Navigation tabs -->
+        <div class="profile-tabs">
+          <button class="profile-tab active">Posty</button>
+          <button class="profile-tab">Zdjęcia</button>
+          <button class="profile-tab">Filmy</button>
+        </div>
+
+        <!-- Experience section -->
+        <div class="section">
+          <div class="section-header">
+            <h2 class="section-title">Doświadczenie</h2>
+            <div class="section-actions">
+              <button class="section-action">
+                <svg class="ico"><use href="#i-plus"/></svg>
+              </button>
+              <button class="section-action">
+                <svg class="ico"><use href="#i-edit"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="experience-item">
+            <div class="company-icon">
+              <img src="FOTO-BASE/GIRTEKA.jpg" alt="Girteka Group">
+            </div>
+            <div class="experience-details">
+              <h4>GIRTEKA GROUP <span class="company-location">Poznań, PL</span></h4>
+              <div class="company">Truck Driver · Pełny etat · CE</div>
+              <div class="vehicles">Scania S 500, Volvo FH 500, DAF XF 480, MAN TGX 18.510</div>
+              <div class="cargo">Firana</div>
+              <div class="duration">paź 2024 – obecnie · 11 mies.</div>
+              <div class="routes">Kierunki: Niemcy, Francja, Hiszpania, Litwa</div>
+            </div>
+          </div>
+          
+          <div class="experience-item">
+            <div class="company-icon">
+              <img src="FOTO-BASE/CARTEX.jpg" alt="Cartrex Trucking">
+            </div>
+            <div class="experience-details">
+              <h4>CARTREX TRUCKING <span class="company-location">Manila, PHL</span></h4>
+              <div class="company">Truck Driver · Pełny etat · CE</div>
+              <div class="vehicles">Mercedes Actros MP4</div>
+              <div class="cargo">Kontener</div>
+              <div class="duration">2014 – 2024 · 10 lat</div>
+              <div class="routes">Kierunki: Quezon City, Manila, Davao City, Caloocan</div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- Skills section -->
+        <div class="section">
+          <div class="section-header">
+            <h2 class="section-title">Uprawnienia</h2>
+            <div class="section-actions">
+              <button class="section-action">
+                <svg class="ico"><use href="#i-plus"/></svg>
+              </button>
+              <button class="section-action">
+                <svg class="ico"><use href="#i-edit"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="skills-list">
+            <div class="skill-item">
+              <div class="skill-title">Dokumenty do pobytu w EU</div>
+              <div class="skill-subtitle">Kraj wydania: (PL) Zezwolenie na pobyt i pracę - <span style="color: #10b981;">Ważne</span></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-title">Prawo jazdy</div>
+              <div class="skill-subtitle">Kraj wydania: (PL) Kategoria: B, B1, C, C1, CE, D1, DE - <span style="color: #10b981;">Ważne</span></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-title">Szkolenie do przewozu osób lub rzeczy (kod 95)</div>
+              <div class="skill-subtitle">Szkolenia okresowe - <span style="color: #10b981;">Ważne</span></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-title">Karta kierowcy</div>
+              <div class="skill-subtitle">Kraj wydania: (PL) Tachograf cyfrowy - <span style="color: #10b981;">Ważna</span></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-title">ADR</div>
+              <div class="skill-subtitle">Kurs specjalistyczny w zakresie przewozu w cysternach - <span style="color: #10b981;">Ważny</span></div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <!-- Languages section -->
+        <div class="section">
+          <div class="section-header">
+            <h2 class="section-title">Języki</h2>
+            <div class="section-actions">
+              <button class="section-action">
+                <svg class="ico"><use href="#i-plus"/></svg>
+              </button>
+              <button class="section-action">
+                <svg class="ico"><use href="#i-edit"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="languages-list">
+            <div class="language-item">
+              <div class="language-info">
+                <div class="language-name">Polski</div>
+                <div class="language-level">A1 - Podstawowy</div>
+              </div>
+            </div>
+            <div class="language-item">
+              <div class="language-info">
+                <div class="language-name">Angielski</div>
+                <div class="language-level">B2 - Średnio zaawansowany</div>
+              </div>
+              <div class="duolingo-badge">
+                <img src="FOTO-BASE/DUO.JPG" alt="Duolingo" class="duolingo-icon">
+                <span class="duolingo-text">DUO</span>
+              </div>
+            </div>
+
+            <div class="language-item">
+              <div class="language-info">
+                <div class="language-name">Filipiński</div>
+                <div class="language-level">Native speaker</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Friends section -->
+        <div class="section">
+          <div class="section-header">
+            <h2 class="section-title">Znajomi</h2>
+            <div class="section-actions">
+              <button class="section-action">
+                <svg class="ico"><use href="#i-plus"/></svg>
+              </button>
+              <button class="section-action">
+                <svg class="ico"><use href="#i-edit"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="friends-header">
+            <div class="friends-count">477 znajomych</div>
+            <div class="friends-search">Szukaj znajomych</div>
+          </div>
+          <div class="friends-grid">
+            <div class="friend-card">
+              <div class="friend-avatar" style="background:#e5e7eb url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop') center/cover no-repeat"></div>
+              <div class="friend-name">Marek Kowalski</div>
+              <div class="friend-status">Aktywny(-a) 19 min temu</div>
+            </div>
+            <div class="friend-card">
+              <div class="friend-avatar" style="background:#e5e7eb url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop') center/cover no-repeat"></div>
+              <div class="friend-name">Tomasz Nowak</div>
+              <div class="friend-status">Aktywny(-a) 8 min temu</div>
+            </div>
+            <div class="friend-card">
+              <div class="friend-avatar" style="background:#e5e7eb url('https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop') center/cover no-repeat"></div>
+              <div class="friend-name">Anna Zielińska</div>
+              <div class="friend-status">Aktywna(-a) 8 min temu</div>
+            </div>
+            <div class="friend-card">
+              <div class="friend-avatar" style="background:#e5e7eb url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop') center/cover no-repeat"></div>
+              <div class="friend-name">Piotr Wiśniewski</div>
+              <div class="friend-status">Aktywny(-a) 5 godz. temu</div>
+            </div>
+            <div class="friend-card">
+              <div class="friend-avatar" style="background:#e5e7eb url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop') center/cover no-repeat"></div>
+              <div class="friend-name">Katarzyna Dąbrowska</div>
+              <div class="friend-status">Aktywna(-a) 1 godz. temu</div>
+            </div>
+            <div class="friend-card">
+              <div class="friend-avatar" style="background:#e5e7eb url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop') center/cover no-repeat"></div>
+              <div class="friend-name">Janusz Malinowski</div>
+              <div class="friend-status">Aktywny(-a) 14 min temu</div>
+            </div>
+          </div>
+          <div class="show-all-friends">
+            <button class="show-friends-btn">Pokaż wszystkich znajomych</button>
+          </div>
+        </div>
+
+          
+          <!-- POSTY W AKTYWNOŚCI -->
+          <article class="post" data-liked="0">
+            <div class="post-head">
+              <div class="post-author">
+                <div class="avatar"></div>
+                <div>
+                  <div><b>JUN POTANE</b></div>
+                  <div class="meta">August 10 • 14:23</div>
+                </div>
+              </div>
+            </div>
+            <div class="post-body">Fiesta when with Filipino colleagues. It's cool when you have someone with you and you can get to the parking lot...</div>
+            <div class="post-img" style="background-image:url('FOTO-BASE/photo1.jpg');"></div>
+            <div class="react-bar">
+              <div class="react-counts">
+                <span><b class="count-like">37</b> reactions</span>
+                <span><b class="count-comment">5</b> comments</span>
+              </div>
+              <div class="react-actions">
+                <button class="react-btn btn-like" data-action="like"><svg class="ico"><use href="#i-like"/></svg><span>Like</span></button>
+                <button class="react-btn btn-comment" data-action="comment"><svg class="ico"><use href="#i-comment"/></svg><span>Comment</span></button>
+              </div>
+            </div>
+            <!-- Comments -->
+            <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--line);">
+              <div style="display:flex;gap:8px;margin-bottom:8px;">
+                <div style="width:32px;height:32px;border-radius:50%;background:#e5e7eb;"></div>
+                <div>
+                  <div style="font-weight:600;font-size:14px;">Joselito Gemina</div>
+                  <div style="font-size:14px;color:var(--text);">My favorite, dong</div>
+                  <div style="font-size:12px;color:var(--muted);margin-top:2px;">1 week ago • Like • Reply • Show translation</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:8px;margin-left:40px;margin-top:8px;">
+                <div style="width:24px;height:24px;border-radius:50%;background:#e5e7eb;"></div>
+                <div>
+                  <div style="font-weight:600;font-size:14px;">Jun Potane</div>
+                  <div style="font-size:14px;color:var(--text);">Hey dong, I'll cook for you.</div>
+                  <div style="font-size:12px;color:var(--muted);margin-top:2px;">1 week ago • Like • Reply</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="post" data-liked="0">
+            <div class="post-head">
+              <div class="post-author">
+                <div class="avatar"></div>
+                <div>
+                  <div><b>JUN POTANE</b></div>
+                  <div class="meta">August 5 • 13:02</div>
+                </div>
+              </div>
+            </div>
+            <div class="post-body">Fix it boss, next salary cut already... where are you going, you're like a friend, the boss is here.</div>
+            <div class="post-img" style="background-image:url('FOTO-BASE/photo2.jpg');"></div>
+            <div class="react-bar">
+              <div class="react-counts">
+                <span><b class="count-like">82</b> reactions</span>
+                <span><b class="count-comment">10</b> comments</span>
+              </div>
+              <div class="react-actions">
+                <button class="react-btn btn-like" data-action="like"><svg class="ico"><use href="#i-like"/></svg><span>Like</span></button>
+                <button class="react-btn btn-comment" data-action="comment"><svg class="ico"><use href="#i-comment"/></svg><span>Comment</span></button>
+              </div>
+            </div>
+            <!-- Comments -->
+            <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--line);">
+              <div style="display:flex;gap:8px;margin-bottom:8px;">
+                <div style="width:32px;height:32px;border-radius:50%;background:#e5e7eb;"></div>
+                <div>
+                  <div style="font-weight:600;font-size:14px;">Jorge Josol</div>
+                  <div style="font-size:14px;color:var(--text);">You're so tough, brod jun</div>
+                  <div style="font-size:12px;color:var(--muted);margin-top:2px;">2 weeks ago • Like • Reply • Show translation</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="post" data-liked="0">
+            <div class="post-head">
+              <div class="post-author">
+                <div class="avatar"></div>
+                <div>
+                  <div><b>JUN POTANE</b> with Ernie Dela Fuente Tabigue</div>
+                  <div class="meta">July 5</div>
+                </div>
+              </div>
+            </div>
+            <div class="post-body">WELCOME TO EUROPE</div>
+            <div class="post-img" style="background-image:url('Desktop/DRIVER LINK/FOTO-BASE/photo3.jpg');"></div>
+            <div class="react-bar">
+              <div class="react-counts">
+                <span><b class="count-like">67</b> reactions</span>
+                <span><b class="count-comment">7</b> comments</span>
+              </div>
+              <div class="react-actions">
+                <button class="react-btn btn-like" data-action="like"><svg class="ico"><use href="#i-like"/></svg><span>Like</span></button>
+                <button class="react-btn btn-comment" data-action="comment"><svg class="ico"><use href="#i-comment"/></svg><span>Comment</span></button>
+              </div>
+            </div>
+            <!-- Comments -->
+            <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--line);">
+              <div style="display:flex;gap:8px;margin-bottom:8px;">
+                <div style="width:32px;height:32px;border-radius:50%;background:#e5e7eb;"></div>
+                <div>
+                  <div style="font-weight:600;font-size:14px;">Ylime Gam</div>
+                  <div style="font-size:14px;color:var(--text);">Oh, your hair is already white, friend.</div>
+                  <div style="font-size:12px;color:var(--muted);margin-top:2px;">6 weeks ago • Like • Reply • Show translation</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="post" data-liked="0">
+            <div class="post-head">
+              <div class="post-author">
+                <div class="avatar"></div>
+                <div>
+                  <div><b>JUN POTANE</b> with Ricky De Jesus Faustino and 3 others</div>
+                  <div class="meta">February 24</div>
+                </div>
+              </div>
+            </div>
+            <div class="post-body">Thanks to the ELMEX group for taking me in for two days, I'm very full.. god bless you all..</div>
+            <div class="post-img" style="background-image:url('Desktop/DRIVER LINK/FOTO-BASE/photo4.jpg');"></div>
+            <div class="react-bar">
+              <div class="react-counts">
+                <span><b class="count-like">63</b> reactions</span>
+                <span><b class="count-comment">2</b> comments</span>
+              </div>
+              <div class="react-actions">
+                <button class="react-btn btn-like" data-action="like"><svg class="ico"><use href="#i-like"/></svg><span>Like</span></button>
+                <button class="react-btn btn-comment" data-action="comment"><svg class="ico"><use href="#i-comment"/></svg><span>Comment</span></button>
+              </div>
+            </div>
+            <!-- Comments -->
+            <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--line);">
+              <div style="display:flex;gap:8px;margin-bottom:8px;">
+                <div style="width:32px;height:32px;border-radius:50%;background:#e5e7eb;"></div>
+                <div>
+                  <div style="font-weight:600;font-size:14px;">Saynoj Llivara</div>
+                  <div style="font-size:14px;color:var(--text);">Is it time to go home, boss?</div>
+                  <div style="font-size:12px;color:var(--muted);margin-top:2px;">25 weeks ago • Like • Reply • Show translation</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <div class="show-activity">Pokaż całą aktywność →</div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- Moja sieć -->
+    <section id="network" class="grid hide">
+      <div class="card" style="display:flex;justify-content:space-between;align-items:center;">
+        <div><b>Andrii Melnyk</b><div class="meta">Kierowca C+E • UA → PL</div></div>
+        <button class="btn-ghost" onclick="toggleFollow(this)">Połącz</button>
+      </div>
+      <div class="card" style="display:flex;justify-content:space-between;align-items:center;">
+        <div><b>BalticTrans</b><div class="meta">Klaipėda • 500+ prac.</div></div>
+        <button class="btn-ghost" onclick="toggleFollow(this)">Obserwuj</button>
+      </div>
+    </section>
+
+    <!-- Opublikuj -->
+    <section id="post" class="grid hide">
+      <div class="card grid">
+        <input class="btn-ghost" style="padding:10px" placeholder="Tytuł (np. Ogłoszenie / Post)" />
+        <textarea class="btn-ghost" rows="4" placeholder="Treść…"></textarea>
+        <button class="btn-ghost" onclick="publish()">Opublikuj</button>
+        <div class="meta">Demo: zapis lokalny – bez serwera.</div>
+      </div>
+    </section>
+
+    <!-- Powiadomienia -->
+    <section id="notifications" class="grid hide">
+      <div class="card"><b>Ola (TransGoCargo)</b> dodała ofertę „C+E – Norwegia".</div>
+      <div class="card"><b>Janex Logistics</b> zaakceptował Twoje zgłoszenie.</div>
+    </section>
+  </main>
+
+  <!-- Dół – bez Profilu/Galerii -->
+  <footer class="footer">
+    <nav class="tabs">
+      <a class="tab active" id="t-home" href="#" onclick="nav('home')"><svg class="ico"><use href="#i-home"/></svg><span class="label">Główna</span></a>
+      <a class="tab" id="t-network" href="#" onclick="nav('network')"><svg class="ico"><use href="#i-people"/></svg><span class="label">Moja sieć</span></a>
+      <a class="tab" id="t-post" href="#" onclick="nav('post')"><svg class="ico"><use href="#i-plus"/></svg><span class="label">Opublikuj</span></a>
+      <a class="tab" id="t-notifications" href="#" onclick="nav('notifications')"><svg class="ico"><use href="#i-bell"/></svg><span class="badge" id="b-notif">2</span><span class="label">Powiadomienia</span></a>
+      <a class="tab" id="t-jobs" href="#" onclick="alert('Oferty – do zrobienia');"><svg class="ico"><use href="#i-brief"/></svg><span class="label">Oferty</span></a>
+    </nav>
+  </footer>
+
+  <script>
+    // Nawigacja – chowa WSZYSTKO i otwiera tylko wybraną sekcję
+    function nav(id){
+      document.querySelectorAll('main > section').forEach(sec=>sec.classList.add('hide'));
+      document.querySelectorAll('.footer .tab').forEach(t=>t.classList.remove('active'));
+      const show=document.getElementById(id); if(show) show.classList.remove('hide');
+      const active=document.getElementById('t-'+id); if(active) active.classList.add('active');
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+
+    // Reakcje
+    function bindReactions(){
+      document.querySelectorAll('.post').forEach(post=>{
+        const likeBtn=post.querySelector('.btn-like');
+        const cLike=post.querySelector('.count-like');
+        const cCom=post.querySelector('.count-comment');
+        const cShare=post.querySelector('.count-share');
+        if(likeBtn){
+          likeBtn.addEventListener('click',()=>{
+            const liked=post.getAttribute('data-liked')==='1';
+            const v=parseInt(cLike.textContent||'0',10)+(liked?-1:1);
+            cLike.textContent=String(v);
+            post.setAttribute('data-liked',liked?'0':'1');
+            likeBtn.classList.toggle('active',!liked);
+          });
+        }
+        const comBtn=post.querySelector('.btn-comment'); if(comBtn){
+          comBtn.addEventListener('click',()=>{ cCom.textContent=String(parseInt(cCom.textContent||'0',10)+1); });
+        }
+        const shareBtn=post.querySelector('.btn-share'); if(shareBtn){
+          shareBtn.addEventListener('click',()=>{ cShare.textContent=String(parseInt(cShare.textContent||'0',10)+1); });
+        }
+      });
+    }
+
+    // Publikuj – demo
+    function publish(){
+      const list=document.getElementById('notifications');
+      const item=document.createElement('div'); item.className='card'; item.textContent='Opublikowano nowy post.';
+      list.prepend(item);
+      const badge=document.getElementById('b-notif'); badge.textContent=String(parseInt(badge.textContent||'0',10)+1);
+      nav('notifications');
+    }
+
+    // Sieć – demo
+    function toggleFollow(btn){
+      const on=btn.getAttribute('data-on')==='1';
+      btn.textContent=on?'Połącz':'Połączono'; btn.setAttribute('data-on',on?'0':'1');
+    }
+
+    // Sticky cień
+    const onScroll=()=>document.body.classList.toggle('scrolled',window.scrollY>4);
+    onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+
+
+
+    // Start
+    document.getElementById('b-notif').textContent='2';
+    bindReactions();
+    nav('home');
+  </script>
+</body>
+</html>
