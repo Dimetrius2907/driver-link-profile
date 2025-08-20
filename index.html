@@ -113,7 +113,7 @@
     .language-level{font-size:13px;color:#6b7280;line-height:1.3;margin-bottom:2px}
     .language-verification{font-size:13px;color:#6b7280}
     .duolingo-badge{display:flex;align-items:center;gap:6px;background:#58cc02;color:white;padding:4px 8px;border-radius:12px;font-size:11px;font-weight:600}
-    .duolingo-icon{width:16px;height:16px;filter:brightness(0) invert(1)}
+    .duolingo-icon{width:36px;height:36px;object-fit:cover;border-radius:4px}
     .duolingo-text{font-size:11px;font-weight:600}
     .friends-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
     .friends-count{font-size:14px;font-weight:600;color:#1f2937}
@@ -277,12 +277,11 @@
       <!-- Profile header -->
       <div class="profile-header">
         <div class="profile-avatar" style="background:#cbd5e1 url('FOTO-BASE/photo5.jpg') center/cover no-repeat"></div>
-        <div class="profile-actions">
-          <div class="linkedin-badge">in</div>
-          <button class="edit-profile-btn" title="Edytuj profil">
-            <svg class="ico"><use href="#i-edit"/></svg>
-          </button>
-        </div>
+                 <div class="profile-actions">
+           <button class="edit-profile-btn" title="Edytuj profil">
+             <svg class="ico"><use href="#i-edit"/></svg>
+           </button>
+         </div>
 
         <!-- Profile info -->
         <div class="profile-info">
@@ -299,28 +298,31 @@
         </div>
       </div>
 
-      <!-- Profile sections -->
-      <div class="profile-sections">
-        <!-- Navigation tabs -->
-        <div class="profile-tabs">
-          <button class="profile-tab active">Posty</button>
-          <button class="profile-tab">Zdjęcia</button>
-          <button class="profile-tab">Filmy</button>
-        </div>
-
-        <!-- Experience section -->
-        <div class="section">
-          <div class="section-header">
-            <h2 class="section-title">Doświadczenie</h2>
-            <div class="section-actions">
-              <button class="section-action">
-                <svg class="ico"><use href="#i-plus"/></svg>
-              </button>
-              <button class="section-action">
-                <svg class="ico"><use href="#i-edit"/></svg>
-              </button>
-            </div>
+             <!-- Profile sections -->
+       <div class="profile-sections">
+                   <!-- Navigation tabs -->
+          <div class="profile-tabs">
+            <button class="profile-tab active" onclick="switchProfileTab('posts')">Posty</button>
+            <button class="profile-tab" onclick="switchProfileTab('info')">Informacje</button>
+            <button class="profile-tab" onclick="switchProfileTab('photos')">Zdjęcia</button>
+            <button class="profile-tab" onclick="switchProfileTab('friends')">Znajomi</button>
           </div>
+
+                   <!-- Informacje section -->
+          <div id="profile-info" class="profile-content hide">
+           <!-- Experience section -->
+           <div class="section">
+             <div class="section-header">
+               <h2 class="section-title">Doświadczenie</h2>
+               <div class="section-actions">
+                 <button class="section-action">
+                   <svg class="ico"><use href="#i-plus"/></svg>
+                 </button>
+                 <button class="section-action">
+                   <svg class="ico"><use href="#i-edit"/></svg>
+                 </button>
+               </div>
+             </div>
           <div class="experience-item">
             <div class="company-icon">
               <img src="FOTO-BASE/GIRTEKA.jpg" alt="Girteka Group">
@@ -349,8 +351,6 @@
             </div>
           </div>
         </div>
-
-
 
         <!-- Skills section -->
         <div class="section">
@@ -386,11 +386,8 @@
               <div class="skill-title">ADR</div>
               <div class="skill-subtitle">Kurs specjalistyczny w zakresie przewozu w cysternach - <span style="color: #10b981;">Ważny</span></div>
             </div>
-
           </div>
         </div>
-
-
 
         <!-- Languages section -->
         <div class="section">
@@ -405,90 +402,58 @@
               </button>
             </div>
           </div>
-          <div class="languages-list">
-            <div class="language-item">
-              <div class="language-info">
-                <div class="language-name">Polski</div>
-                <div class="language-level">A1 - Podstawowy</div>
-              </div>
-            </div>
-            <div class="language-item">
-              <div class="language-info">
-                <div class="language-name">Angielski</div>
-                <div class="language-level">B2 - Średnio zaawansowany</div>
-              </div>
-              <div class="duolingo-badge">
-                <img src="FOTO-BASE/DUO.JPG" alt="Duolingo" class="duolingo-icon">
-                <span class="duolingo-text">DUO</span>
-              </div>
-            </div>
-
+                     <div class="languages-list">
             <div class="language-item">
               <div class="language-info">
                 <div class="language-name">Filipiński</div>
                 <div class="language-level">Native speaker</div>
               </div>
             </div>
+                          <div class="language-item">
+               <div class="language-info">
+                 <div class="language-name">Angielski</div>
+                 <div class="language-level">B2 - Średnio zaawansowany</div>
+               </div>
+                                <div style="display:flex;align-items:center;gap:8px;">
+                  <span style="font-size:12px;color:#6b7280;">sprawdzono przez DUOLINGO</span>
+                  <img src="FOTO-BASE/DUO.jpg" alt="Duolingo" class="duolingo-icon">
+                </div>
+             </div>
+            <div class="language-item">
+              <div class="language-info">
+                <div class="language-name">Polski</div>
+                <div class="language-level">A1 - Podstawowy</div>
+              </div>
+            </div>
           </div>
         </div>
+       </div>
 
-        <!-- Friends section -->
-        <div class="section">
-          <div class="section-header">
-            <h2 class="section-title">Znajomi</h2>
-            <div class="section-actions">
-              <button class="section-action">
-                <svg class="ico"><use href="#i-plus"/></svg>
-              </button>
-              <button class="section-action">
-                <svg class="ico"><use href="#i-edit"/></svg>
-              </button>
-            </div>
-          </div>
-          <div class="friends-header">
-            <div class="friends-count">477 znajomych</div>
-            <div class="friends-search">Szukaj znajomych</div>
-          </div>
-          <div class="friends-grid">
-            <div class="friend-card">
-              <div class="friend-avatar" style="background:#e5e7eb url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop') center/cover no-repeat"></div>
-              <div class="friend-name">Marek Kowalski</div>
-              <div class="friend-status">Aktywny(-a) 19 min temu</div>
-            </div>
-            <div class="friend-card">
-              <div class="friend-avatar" style="background:#e5e7eb url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop') center/cover no-repeat"></div>
-              <div class="friend-name">Tomasz Nowak</div>
-              <div class="friend-status">Aktywny(-a) 8 min temu</div>
-            </div>
-            <div class="friend-card">
-              <div class="friend-avatar" style="background:#e5e7eb url('https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop') center/cover no-repeat"></div>
-              <div class="friend-name">Anna Zielińska</div>
-              <div class="friend-status">Aktywna(-a) 8 min temu</div>
-            </div>
-            <div class="friend-card">
-              <div class="friend-avatar" style="background:#e5e7eb url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop') center/cover no-repeat"></div>
-              <div class="friend-name">Piotr Wiśniewski</div>
-              <div class="friend-status">Aktywny(-a) 5 godz. temu</div>
-            </div>
-            <div class="friend-card">
-              <div class="friend-avatar" style="background:#e5e7eb url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop') center/cover no-repeat"></div>
-              <div class="friend-name">Katarzyna Dąbrowska</div>
-              <div class="friend-status">Aktywna(-a) 1 godz. temu</div>
-            </div>
-            <div class="friend-card">
-              <div class="friend-avatar" style="background:#e5e7eb url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop') center/cover no-repeat"></div>
-              <div class="friend-name">Janusz Malinowski</div>
-              <div class="friend-status">Aktywny(-a) 14 min temu</div>
-            </div>
-          </div>
-          <div class="show-all-friends">
-            <button class="show-friends-btn">Pokaż wszystkich znajomych</button>
-          </div>
-        </div>
+                 <!-- Profile Content Sections -->
+         <div id="profile-photos" class="profile-content hide">
+           <div class="section">
+             <div class="section-header">
+               <h2 class="section-title">Zdjęcia</h2>
+               <div class="section-actions">
+                 <button class="section-action">
+                   <svg class="ico"><use href="#i-plus"/></svg>
+                 </button>
+               </div>
+             </div>
+             <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+               <div style="aspect-ratio:1;background:url('FOTO-BASE/photo1.jpg') center/cover;border-radius:8px;"></div>
+               <div style="aspect-ratio:1;background:url('FOTO-BASE/photo2.jpg') center/cover;border-radius:8px;"></div>
+               <div style="aspect-ratio:1;background:url('FOTO-BASE/photo3.jpg') center/cover;border-radius:8px;"></div>
+               <div style="aspect-ratio:1;background:url('FOTO-BASE/photo4.jpg') center/cover;border-radius:8px;"></div>
+               <div style="aspect-ratio:1;background:url('FOTO-BASE/photo5.jpg') center/cover;border-radius:8px;"></div>
+               <div style="aspect-ratio:1;background:url('FOTO-BASE/BACK.jpg') center/cover;border-radius:8px;"></div>
+             </div>
+           </div>
+         </div>
 
-          
-          <!-- POSTY W AKTYWNOŚCI -->
-          <article class="post" data-liked="0">
+                                       <div id="profile-posts" class="profile-content">
+            <!-- POSTY W AKTYWNOŚCI -->
+            <article class="post" data-liked="0">
             <div class="post-head">
               <div class="post-author">
                 <div class="avatar"></div>
@@ -636,12 +601,88 @@
             </div>
           </article>
 
-          <div class="show-activity">Pokaż całą aktywność →</div>
+                                                                 <div class="show-activity">Pokaż całą aktywność →</div>
+          </div>
         </div>
 
+        <div id="profile-friends" class="profile-content hide">
+          <!-- Friends section -->
+          <div class="section">
+            <div class="section-header">
+              <h2 class="section-title">Znajomi</h2>
+              <div class="section-actions">
+                <button class="section-action">
+                  <svg class="ico"><use href="#i-plus"/></svg>
+                </button>
+                <button class="section-action">
+                  <svg class="ico"><use href="#i-edit"/></svg>
+                </button>
+              </div>
+            </div>
+          <div class="friends-header">
+            <div class="friends-count">477 znajomych</div>
+            <div class="friends-search">Szukaj znajomych</div>
+          </div>
+          <div class="friends-grid">
+            <div class="friend-card">
+              <div class="friend-avatar" style="background:#e5e7eb url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop') center/cover no-repeat"></div>
+              <div class="friend-name">Marek Kowalski</div>
+              <div class="friend-status">Aktywny(-a) 19 min temu</div>
+            </div>
+            <div class="friend-card">
+              <div class="friend-avatar" style="background:#e5e7eb url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop') center/cover no-repeat"></div>
+              <div class="friend-name">Tomasz Nowak</div>
+              <div class="friend-status">Aktywny(-a) 8 min temu</div>
+            </div>
+            <div class="friend-card">
+              <div class="friend-avatar" style="background:#e5e7eb url('https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop') center/cover no-repeat"></div>
+              <div class="friend-name">Anna Zielińska</div>
+              <div class="friend-status">Aktywna(-a) 8 min temu</div>
+            </div>
+            <div class="friend-card">
+              <div class="friend-avatar" style="background:#e5e7eb url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop') center/cover no-repeat"></div>
+              <div class="friend-name">Piotr Wiśniewski</div>
+              <div class="friend-status">Aktywny(-a) 5 godz. temu</div>
+            </div>
+            <div class="friend-card">
+              <div class="friend-avatar" style="background:#e5e7eb url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop') center/cover no-repeat"></div>
+              <div class="friend-name">Katarzyna Dąbrowska</div>
+              <div class="friend-status">Aktywna(-a) 1 godz. temu</div>
+            </div>
+            <div class="friend-card">
+              <div class="friend-avatar" style="background:#e5e7eb url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop') center/cover no-repeat"></div>
+              <div class="friend-name">Janusz Malinowski</div>
+              <div class="friend-status">Aktywny(-a) 14 min temu</div>
+            </div>
+          </div>
+                       <div class="show-all-friends">
+              <button class="show-friends-btn">Pokaż wszystkich znajomych</button>
+            </div>
+          </div>
+        </div>
 
-      </div>
-    </section>
+                                 <div id="profile-references" class="profile-content hide">
+         <div class="section">
+           <div class="section-header">
+             <h2 class="section-title">Referencje</h2>
+             <div class="section-actions">
+               <button class="section-action">
+                 <svg class="ico"><use href="#i-plus"/></svg>
+               </button>
+               <button class="section-action">
+                 <svg class="ico"><use href="#i-edit"/></svg>
+               </button>
+             </div>
+           </div>
+           <!-- Pusta sekcja referencji -->
+           <div style="text-align:center;padding:40px 20px;color:#6b7280;">
+             <div style="font-size:16px;margin-bottom:8px;">Brak referencji</div>
+             <div style="font-size:14px;">Dodaj swoje pierwsze referencje</div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </section>
 
     <!-- Moja sieć -->
     <section id="network" class="grid hide">
@@ -733,16 +774,39 @@
       btn.textContent=on?'Połącz':'Połączono'; btn.setAttribute('data-on',on?'0':'1');
     }
 
-    // Sticky cień
-    const onScroll=()=>document.body.classList.toggle('scrolled',window.scrollY>4);
-    onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+         // Sticky cień
+     const onScroll=()=>document.body.classList.toggle('scrolled',window.scrollY>4);
+     onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
 
+     // Profile tabs switching
+     function switchProfileTab(tabName) {
+       // Hide all profile content sections
+       document.querySelectorAll('.profile-content').forEach(content => {
+         content.classList.add('hide');
+       });
+       
+       // Remove active class from all tabs
+       document.querySelectorAll('.profile-tab').forEach(tab => {
+         tab.classList.remove('active');
+       });
+       
+       // Show selected content and activate tab
+       const selectedContent = document.getElementById('profile-' + tabName);
+       const selectedTab = event.target;
+       
+       if (selectedContent) {
+         selectedContent.classList.remove('hide');
+       }
+       
+       if (selectedTab) {
+         selectedTab.classList.add('active');
+       }
+     }
 
-
-    // Start
-    document.getElementById('b-notif').textContent='2';
-    bindReactions();
-    nav('home');
+     // Start
+     document.getElementById('b-notif').textContent='2';
+     bindReactions();
+     nav('home');
   </script>
 </body>
 </html>
