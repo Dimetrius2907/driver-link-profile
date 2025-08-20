@@ -252,78 +252,115 @@
     <!-- FEED -->
     <section id="home" class="grid">
       <!-- Stories/Relacje Section -->
-      <div class="stories-section" style="margin-bottom:20px;">
-        <div class="stories-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;padding:0 4px;">
-          <h3 style="font-size:16px;font-weight:600;color:#1f2937;margin:0;">Relacje</h3>
-          <span style="font-size:14px;color:#6b7280;">Zobacz wszystkie</span>
+      <div class="stories-section" style="margin-bottom:32px;position:relative;padding:0 16px;">
+        <div class="stories-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+          <h3 style="font-size:18px;font-weight:700;color:#1f2937;margin:0;">Relacje</h3>
+          <span style="font-size:14px;color:#6b7280;cursor:pointer;transition:color 0.2s;" onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#6b7280'">Zobacz wszystkie</span>
         </div>
-        <div class="stories-container" style="display:flex;gap:8px;overflow-x:auto;padding:0 4px;position:relative;width:calc(5.5 * 108px + 4px);scrollbar-width:none;-ms-overflow-style:none;">
+        <div class="stories-container" style="display:flex;gap:12px;overflow-x:auto;padding:8px 0;position:relative;width:calc(5 * 120px + 48px);scrollbar-width:none;-ms-overflow-style:none;max-width:calc(5 * 120px + 48px);">
           <!-- Create Story -->
-          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:linear-gradient(45deg,#667eea,#764ba2);display:flex;flex-direction:column;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;">
-            <svg style="width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2;margin-bottom:8px;"><use href="#i-plus"/></svg>
-            <div style="font-size:12px;color:#fff;font-weight:600;">Utwórz relację</div>
+          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:120px;height:160px;border-radius:16px;background:linear-gradient(45deg,#667eea,#764ba2);display:flex;flex-direction:column;align-items:center;justify-content:center;border:3px solid #fff;box-shadow:0 4px 16px rgba(0,0,0,0.15);position:relative;transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.15)'">
+            <svg style="width:28px;height:28px;stroke:#fff;fill:none;stroke-width:2;margin-bottom:10px;"><use href="#i-plus"/></svg>
+            <div style="font-size:13px;color:#fff;font-weight:600;">Utwórz relację</div>
           </div>
           
           <!-- Friend Stories -->
+          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:120px;height:160px;border-radius:16px;background:url('FOTO-BASE/photo1.jpg') center/cover;border:3px solid #667eea;box-shadow:0 4px 16px rgba(0,0,0,0.15);position:relative;display:flex;flex-direction:column;transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.15)'">
+            <div style="position:absolute;top:12px;left:12px;width:36px;height:36px;border-radius:50%;background:url('FOTO-BASE/photo2.jpg') center/cover;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.3);"></div>
+            <div style="position:absolute;top:12px;right:12px;font-size:10px;color:#fff;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,0.9);background:rgba(0,0,0,0.7);padding:4px 8px;border-radius:10px;backdrop-filter:blur(4px);">2h temu</div>
+            <div style="position:absolute;bottom:12px;left:12px;right:12px;font-size:12px;color:#fff;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,0.9);">Demyan Kulik</div>
+            <div style="position:absolute;bottom:12px;right:12px;display:flex;gap:4px;">
+              <div style="width:24px;height:24px;background:rgba(255,255,255,0.95);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 3px 8px rgba(0,0,0,0.3);transition:all 0.2s ease;backdrop-filter:blur(4px);" onclick="likeStory(event, 'demyan')" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">
+                <svg style="width:14px;height:14px;fill:#e53e3e;transition:all 0.2s ease;" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              </div>
+            </div>
+          </div>
+          
+          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:120px;height:160px;border-radius:16px;background:url('FOTO-BASE/photo3.jpg') center/cover;border:3px solid #667eea;box-shadow:0 4px 16px rgba(0,0,0,0.15);position:relative;display:flex;flex-direction:column;transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.15)'">
+            <div style="position:absolute;top:12px;left:12px;width:36px;height:36px;border-radius:50%;background:url('FOTO-BASE/photo4.jpg') center/cover;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.3);"></div>
+            <div style="position:absolute;top:12px;right:12px;font-size:10px;color:#fff;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,0.9);background:rgba(0,0,0,0.7);padding:4px 8px;border-radius:10px;backdrop-filter:blur(4px);">2h temu</div>
+            <div style="position:absolute;bottom:12px;left:12px;right:12px;font-size:12px;color:#fff;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,0.9);">Maksym Oliinyk</div>
+            <div style="position:absolute;bottom:12px;right:12px;display:flex;gap:4px;">
+              <div style="width:24px;height:24px;background:rgba(255,255,255,0.95);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 3px 8px rgba(0,0,0,0.3);transition:all 0.2s ease;backdrop-filter:blur(4px);" onclick="likeStory(event, 'maksym')" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">
+                <svg style="width:14px;height:14px;fill:#ccc;transition:all 0.2s ease;" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              </div>
+            </div>
+          </div>
+          
+          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo5.jpg') center/cover;border:2px solid #667eea;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;">
+            <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo1.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
+            <div style="position:absolute;top:8px;right:8px;font-size:9px;color:#fff;font-weight:500;text-shadow:0 1px 2px rgba(0,0,0,0.8);background:rgba(0,0,0,0.6);padding:2px 6px;border-radius:8px;">2h temu</div>
+            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Viktor Petrenko</div>
+            <div style="position:absolute;bottom:8px;right:8px;display:flex;gap:4px;">
+              <div style="width:20px;height:20px;background:rgba(255,255,255,0.95);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,0.2);transition:all 0.2s ease;" onclick="likeStory(event, 'viktor')" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <svg style="width:12px;height:12px;fill:#ccc;transition:all 0.2s ease;" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              </div>
+            </div>
+          </div>
+          
+          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo2.jpg') center/cover;border:2px solid #667eea;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;">
+            <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo3.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
+            <div style="position:absolute;top:8px;right:8px;font-size:9px;color:#fff;font-weight:500;text-shadow:0 1px 2px rgba(0,0,0,0.8);background:rgba(0,0,0,0.6);padding:2px 6px;border-radius:8px;">2h temu</div>
+            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Oleksandr Melnyk</div>
+            <div style="position:absolute;bottom:8px;right:8px;display:flex;gap:4px;">
+              <div style="width:20px;height:20px;background:rgba(255,255,255,0.95);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,0.2);transition:all 0.2s ease;" onclick="likeStory(event, 'oleksandr')" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <svg style="width:12px;height:12px;fill:#ccc;transition:all 0.2s ease;" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              </div>
+            </div>
+          </div>
+          
+          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo4.jpg') center/cover;border:2px solid #667eea;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;">
+            <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo5.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
+            <div style="position:absolute;top:8px;right:8px;font-size:9px;color:#fff;font-weight:500;text-shadow:0 1px 2px rgba(0,0,0,0.8);background:rgba(0,0,0,0.6);padding:2px 6px;border-radius:8px;">2h temu</div>
+            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Ivan Shevchenko</div>
+            <div style="position:absolute;bottom:8px;right:8px;display:flex;gap:4px;">
+              <div style="width:20px;height:20px;background:rgba(255,255,255,0.95);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,0.2);transition:all 0.2s ease;" onclick="likeStory(event, 'ivan')" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <svg style="width:12px;height:12px;fill:#ccc;transition:all 0.2s ease;" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              </div>
+            </div>
+          </div>
+          
           <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo1.jpg') center/cover;border:2px solid #667eea;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;">
             <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo2.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
-            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Demyan Kulik</div>
+            <div style="position:absolute;top:8px;right:8px;font-size:9px;color:#fff;font-weight:500;text-shadow:0 1px 2px rgba(0,0,0,0.8);background:rgba(0,0,0,0.6);padding:2px 6px;border-radius:8px;">2h temu</div>
+            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Serhii Kovalenko</div>
+            <div style="position:absolute;bottom:8px;right:8px;display:flex;gap:4px;">
+              <div style="width:20px;height:20px;background:rgba(255,255,255,0.95);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,0.2);transition:all 0.2s ease;" onclick="likeStory(event, 'serhii')" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <svg style="width:12px;height:12px;fill:#ccc;transition:all 0.2s ease;" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              </div>
+            </div>
           </div>
           
           <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo3.jpg') center/cover;border:2px solid #667eea;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;">
             <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo4.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
-            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Maksym Oliinyk</div>
-          </div>
-          
-          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo5.jpg') center/cover;border:2px solid #667eea;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;">
-            <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo1.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
-            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Viktor Petrenko</div>
-          </div>
-          
-          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo2.jpg') center/cover;border:2px solid #667eea;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;">
-            <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo3.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
-            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Oleksandr Melnyk</div>
-          </div>
-          
-          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo4.jpg') center/cover;border:2px solid #667eea;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;">
-            <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo5.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
-            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Ivan Shevchenko</div>
-          </div>
-          
-          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo1.jpg') center/cover;border:2px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;opacity:0.7;">
-            <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo2.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
-            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Serhii Kovalenko</div>
-          </div>
-          
-          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo3.jpg') center/cover;border:2px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;opacity:0.7;">
-            <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo4.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
+            <div style="position:absolute;top:8px;right:8px;font-size:9px;color:#fff;font-weight:500;text-shadow:0 1px 2px rgba(0,0,0,0.8);background:rgba(0,0,0,0.6);padding:2px 6px;border-radius:8px;">2h temu</div>
             <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Andrii Bondarenko</div>
-          </div>
-          
-          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo5.jpg') center/cover;border:2px solid #667eea;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;">
-            <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo1.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
-            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Yurii Tkachenko</div>
-          </div>
-          
-          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo2.jpg') center/cover;border:2px solid #667eea;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;">
-            <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo3.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
-            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Vitalii Marchenko</div>
-          </div>
-          
-          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo4.jpg') center/cover;border:2px solid #667eea;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;">
-            <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo5.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
-            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Roman Lysenko</div>
+            <div style="position:absolute;bottom:8px;right:8px;display:flex;gap:4px;">
+              <div style="width:20px;height:20px;background:rgba(255,255,255,0.95);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,0.2);transition:all 0.2s ease;" onclick="likeStory(event, 'andrii')" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <svg style="width:12px;height:12px;fill:#ccc;transition:all 0.2s ease;" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              </div>
+            </div>
           </div>
           
 
           
-          <!-- Scroll Button -->
-          <div class="scroll-button" onclick="scrollStories()" style="position:absolute;right:-25px;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#fff,#f8fafc);box-shadow:0 4px 12px rgba(0,0,0,0.15),0 2px 4px rgba(0,0,0,0.1);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;border:2px solid #fff;transition:all 0.2s ease;backdrop-filter:blur(10px);">
-            <svg style="width:18px;height:18px;stroke:#1f2937;fill:none;stroke-width:2.5;">
-              <path d="M9 18l6-6-6-6"/>
-            </svg>
-          </div>
+
+          
         </div>
+        
+        <!-- Scroll Button Right -->
+        <button class="scroll-button scroll-right" onclick="scrollStories('right')" style="position:absolute;right:4px;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:#fff;border:2px solid #e5e7eb;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+          <svg style="width:20px;height:20px;stroke:#374151;fill:none;stroke-width:2;">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
+        
+        <!-- Scroll Button Left -->
+        <button class="scroll-button scroll-left" onclick="scrollStories('left')" style="position:absolute;left:4px;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:#fff;border:2px solid #e5e7eb;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,0.1);opacity:0;visibility:hidden;">
+          <svg style="width:20px;height:20px;stroke:#374151;fill:none;stroke-width:2;">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
       </div>
 
       <!-- Main Feed -->
@@ -336,9 +373,41 @@
         <div class="post-body">Uruchomiliśmy 20 nowych zestawów C+E na trasie PL‑DE. Pierwsze załadunki w Poznaniu, rozładunki w Berlinie i Hamburgu.</div>
         <div class="post-img" style="background-image:url('https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=800&h=600&fit=crop');"></div>
         <div class="react-bar"><div class="react-counts"><span><b class="count-like">2716</b> poleceń</span><span><b class="count-comment">189</b> komentarzy</span><span><b class="count-share">10</b> udostępnień</span></div>
-          <div class="react-actions"><button class="react-btn btn-like" data-action="like"><svg class="ico"><use href="#i-like"/></svg><span>Poleć</span></button>
-          <button class="react-btn btn-comment" data-action="comment"><svg class="ico"><use href="#i-comment"/></svg><span>Skomentuj</span></button>
-          <button class="react-btn btn-share" data-action="share"><svg class="ico"><use href="#i-share"/></svg><span>Udostępnij</span></button></div></div>
+          <div class="react-actions">
+            <button class="react-btn btn-like" data-action="like"><svg class="ico"><use href="#i-like"/></svg><span>Poleć</span></button>
+            <button class="react-btn btn-comment" data-action="comment"><svg class="ico"><use href="#i-comment"/></svg><span>Skomentuj</span></button>
+            <button class="react-btn btn-share" data-action="share" onclick="showShareOptions(event)"><svg class="ico"><use href="#i-share"/></svg><span>Udostępnij</span></button>
+            <button class="react-btn btn-save" onclick="savePost(event)" style="margin-left:8px;"><svg class="ico" style="width:16px;height:16px;fill:none;stroke:#6b7280;stroke-width:2;"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg><span style="color:#6b7280;">Zapisz</span></button>
+          </div>
+        </div>
+        
+        <!-- Share Options Modal -->
+        <div id="shareModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center;">
+          <div style="background:#fff;border-radius:16px;padding:24px;max-width:300px;width:90%;">
+            <h3 style="margin:0 0 16px 0;font-size:18px;font-weight:600;">Udostępnij</h3>
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <button onclick="shareTo('messenger')" style="display:flex;align-items:center;gap:12px;padding:12px;border:none;background:#f3f4f6;border-radius:8px;cursor:pointer;transition:background 0.2s;">
+                <div style="width:32px;height:32px;background:#0084ff;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                  <svg style="width:20px;height:20px;fill:#fff;" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <span style="font-weight:500;">Messenger</span>
+              </button>
+              <button onclick="shareTo('whatsapp')" style="display:flex;align-items:center;gap:12px;padding:12px;border:none;background:#f3f4f6;border-radius:8px;cursor:pointer;transition:background 0.2s;">
+                <div style="width:32px;height:32px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                  <svg style="width:20px;height:20px;fill:#fff;" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>
+                </div>
+                <span style="font-weight:500;">WhatsApp</span>
+              </button>
+              <button onclick="shareTo('email')" style="display:flex;align-items:center;gap:12px;padding:12px;border:none;background:#f3f4f6;border-radius:8px;cursor:pointer;transition:background 0.2s;">
+                <div style="width:32px;height:32px;background:#ea4335;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                  <svg style="width:20px;height:20px;fill:#fff;" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </div>
+                <span style="font-weight:500;">Email</span>
+              </button>
+            </div>
+            <button onclick="closeShareModal()" style="margin-top:16px;width:100%;padding:12px;border:none;background:#e5e7eb;border-radius:8px;cursor:pointer;font-weight:500;">Anuluj</button>
+          </div>
+        </div>
       </article>
 
       <article class="post" data-liked="0">
@@ -926,6 +995,13 @@
       const show=document.getElementById(id); if(show) show.classList.remove('hide');
       const active=document.getElementById('t-'+id); if(active) active.classList.add('active');
       window.scrollTo({top:0,behavior:'smooth'});
+      
+      // Initialize scroll buttons when home section is shown
+      if (id === 'home') {
+        setTimeout(() => {
+          initScrollButtons();
+        }, 100);
+      }
     }
 
     // Reakcje
@@ -998,19 +1074,199 @@
      }
 
      // Stories scrolling
-     function scrollStories() {
+     function scrollStories(direction = 'right') {
+       console.log('scrollStories called with direction:', direction);
        const container = document.querySelector('.stories-container');
+       console.log('Container found:', container);
        const scrollAmount = 3 * 108; // 3 stories width
-       container.scrollBy({
-         left: scrollAmount,
-         behavior: 'smooth'
-       });
+       
+       if (direction === 'right') {
+         container.scrollBy({
+           left: scrollAmount,
+           behavior: 'smooth'
+         });
+       } else {
+         container.scrollBy({
+           left: -scrollAmount,
+           behavior: 'smooth'
+         });
+       }
+       
+       // Check scroll position after animation
+       setTimeout(() => {
+         updateScrollButtons();
+       }, 300);
      }
+     
+     // Update scroll buttons visibility
+     function updateScrollButtons() {
+       const container = document.querySelector('.stories-container');
+       const leftBtn = document.querySelector('.scroll-left');
+       const rightBtn = document.querySelector('.scroll-right');
+       
+       // Check if elements exist
+       if (!container || !leftBtn || !rightBtn) {
+         console.log('Scroll buttons not found');
+         return;
+       }
+       
+       console.log('Scroll position:', container.scrollLeft, 'Max scroll:', container.scrollWidth - container.clientWidth);
+       
+       if (container.scrollLeft <= 0) {
+         // At the beginning - hide left button
+         leftBtn.style.opacity = '0';
+         leftBtn.style.visibility = 'hidden';
+         console.log('Hiding left button');
+       } else {
+         // Scrolled right - show left button
+         leftBtn.style.opacity = '1';
+         leftBtn.style.visibility = 'visible';
+         console.log('Showing left button');
+       }
+       
+       if (container.scrollLeft >= container.scrollWidth - container.clientWidth - 10) {
+         // At the end - hide right button
+         rightBtn.style.opacity = '0';
+         rightBtn.style.visibility = 'hidden';
+         console.log('Hiding right button');
+       } else {
+         // Not at the end - show right button
+         rightBtn.style.opacity = '1';
+         rightBtn.style.visibility = 'visible';
+         console.log('Showing right button');
+       }
+     }
+     
+     // Initialize scroll buttons
+     function initScrollButtons() {
+       const container = document.querySelector('.stories-container');
+       if (container) {
+         updateScrollButtons();
+         container.addEventListener('scroll', function() {
+           updateScrollButtons();
+         });
+       }
+     }
+
+     // Story reactions
+     function likeStory(event, storyId) {
+       event.stopPropagation();
+       const heart = event.currentTarget.querySelector('svg');
+       if (heart.style.fill === 'rgb(229, 62, 62)') {
+         heart.style.fill = '#ccc';
+       } else {
+         heart.style.fill = '#e53e3e';
+       }
+     }
+
+     // Feed sorting
+     function sortFeed(type) {
+       // Remove active class from all buttons
+       document.querySelectorAll('.sort-btn').forEach(btn => btn.classList.remove('active'));
+       // Add active class to clicked button
+       event.target.classList.add('active');
+       
+       // Update button styles
+       document.querySelectorAll('.sort-btn').forEach(btn => {
+         if (btn.classList.contains('active')) {
+           btn.style.background = '#667eea';
+           btn.style.color = '#fff';
+           btn.style.borderColor = '#667eea';
+         } else {
+           btn.style.background = '#fff';
+           btn.style.color = '#374151';
+           btn.style.borderColor = '#e5e7eb';
+         }
+       });
+       
+       // Here you would implement actual sorting logic
+       console.log('Sorting by:', type);
+     }
+
+     // Save post
+     function savePost(event) {
+       event.preventDefault();
+       const btn = event.currentTarget;
+       const icon = btn.querySelector('svg');
+       const text = btn.querySelector('span');
+       
+       if (btn.classList.contains('saved')) {
+         btn.classList.remove('saved');
+         icon.style.fill = 'none';
+         icon.style.stroke = '#6b7280';
+         text.style.color = '#6b7280';
+         text.textContent = 'Zapisz';
+       } else {
+         btn.classList.add('saved');
+         icon.style.fill = '#667eea';
+         icon.style.stroke = '#667eea';
+         text.style.color = '#667eea';
+         text.textContent = 'Zapisano';
+       }
+     }
+
+     // Share options
+     function showShareOptions(event) {
+       event.preventDefault();
+       const modal = document.getElementById('shareModal');
+       modal.style.display = 'flex';
+     }
+
+     function closeShareModal() {
+       const modal = document.getElementById('shareModal');
+       modal.style.display = 'none';
+     }
+
+     function shareTo(platform) {
+       const url = window.location.href;
+       const text = 'Sprawdź ten post na Driver Link!';
+       
+       let shareUrl = '';
+       switch(platform) {
+         case 'messenger':
+           shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+           break;
+         case 'whatsapp':
+           shareUrl = `https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`;
+           break;
+         case 'email':
+           shareUrl = `mailto:?subject=Driver Link Post&body=${encodeURIComponent(text + ' ' + url)}`;
+           break;
+       }
+       
+       if (shareUrl) {
+         window.open(shareUrl, '_blank');
+       }
+       
+       closeShareModal();
+     }
+
+     // Close modal when clicking outside
+     document.addEventListener('click', function(event) {
+       const modal = document.getElementById('shareModal');
+       if (event.target === modal) {
+         closeShareModal();
+       }
+     });
 
      // Start
      document.getElementById('b-notif').textContent='2';
      bindReactions();
      nav('home');
+     
+     // Initialize scroll buttons after a short delay
+     setTimeout(() => {
+       console.log('Initializing scroll buttons...');
+       initScrollButtons();
+       console.log('Scroll buttons initialized');
+     }, 500);
+     
+     // Test if functions are available
+     console.log('Functions available:', {
+       scrollStories: typeof scrollStories,
+       updateScrollButtons: typeof updateScrollButtons,
+       initScrollButtons: typeof initScrollButtons
+     });
   </script>
 </body>
 </html>
