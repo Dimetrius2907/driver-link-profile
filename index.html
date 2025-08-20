@@ -236,11 +236,8 @@
 
   <!-- Topbar - NOWY STYL LINKEDIN -->
   <header class="topbar">
-    <button class="back-btn" onclick="nav('home')" title="Wstecz">
-      <svg class="ico"><use href="#i-arrow-left"/></svg>
-    </button>
-    <button class="icon-btn" onclick="nav('me')" title="Profil">
-      <svg class="ico"><use href="#i-user"/></svg>
+    <button class="icon-btn" onclick="nav('me')" title="Profil" style="padding:0;overflow:hidden;">
+      <div style="width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo5.jpg') center/cover;border:2px solid #fff;"></div>
     </button>
     <div class="searchbar">
       <svg class="ico"><use href="#i-search"/></svg>
@@ -254,11 +251,141 @@
   <main class="container">
     <!-- FEED -->
     <section id="home" class="grid">
+      <!-- Stories/Relacje Section -->
+      <div class="stories-section" style="margin-bottom:20px;">
+        <div class="stories-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;padding:0 4px;">
+          <h3 style="font-size:16px;font-weight:600;color:#1f2937;margin:0;">Relacje</h3>
+          <span style="font-size:14px;color:#6b7280;">Zobacz wszystkie</span>
+        </div>
+        <div class="stories-container" style="display:flex;gap:8px;overflow-x:auto;padding:0 4px;position:relative;width:calc(5.5 * 108px + 4px);scrollbar-width:none;-ms-overflow-style:none;">
+          <!-- Create Story -->
+          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:linear-gradient(45deg,#667eea,#764ba2);display:flex;flex-direction:column;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;">
+            <svg style="width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2;margin-bottom:8px;"><use href="#i-plus"/></svg>
+            <div style="font-size:12px;color:#fff;font-weight:600;">Utwórz relację</div>
+          </div>
+          
+          <!-- Friend Stories -->
+          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo1.jpg') center/cover;border:2px solid #667eea;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;">
+            <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo2.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
+            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Demyan Kulik</div>
+          </div>
+          
+          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo3.jpg') center/cover;border:2px solid #667eea;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;">
+            <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo4.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
+            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Maksym Oliinyk</div>
+          </div>
+          
+          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo5.jpg') center/cover;border:2px solid #667eea;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;">
+            <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo1.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
+            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Viktor Petrenko</div>
+          </div>
+          
+          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo2.jpg') center/cover;border:2px solid #667eea;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;">
+            <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo3.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
+            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Oleksandr Melnyk</div>
+          </div>
+          
+          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo4.jpg') center/cover;border:2px solid #667eea;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;">
+            <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo5.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
+            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Ivan Shevchenko</div>
+          </div>
+          
+          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo1.jpg') center/cover;border:2px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;opacity:0.7;">
+            <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo2.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
+            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Serhii Kovalenko</div>
+          </div>
+          
+          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo3.jpg') center/cover;border:2px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;opacity:0.7;">
+            <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo4.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
+            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Andrii Bondarenko</div>
+          </div>
+          
+          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo5.jpg') center/cover;border:2px solid #667eea;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;">
+            <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo1.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
+            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Yurii Tkachenko</div>
+          </div>
+          
+          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo2.jpg') center/cover;border:2px solid #667eea;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;">
+            <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo3.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
+            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Vitalii Marchenko</div>
+          </div>
+          
+          <div class="story-item" style="flex-shrink:0;cursor:pointer;width:100px;height:140px;border-radius:12px;background:url('FOTO-BASE/photo4.jpg') center/cover;border:2px solid #667eea;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:relative;display:flex;flex-direction:column;">
+            <div style="position:absolute;top:8px;left:8px;width:32px;height:32px;border-radius:50%;background:url('FOTO-BASE/photo5.jpg') center/cover;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></div>
+            <div style="position:absolute;bottom:8px;left:8px;right:8px;font-size:11px;color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.8);">Roman Lysenko</div>
+          </div>
+          
+
+          
+          <!-- Scroll Button -->
+          <div class="scroll-button" onclick="scrollStories()" style="position:absolute;right:-25px;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#fff,#f8fafc);box-shadow:0 4px 12px rgba(0,0,0,0.15),0 2px 4px rgba(0,0,0,0.1);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;border:2px solid #fff;transition:all 0.2s ease;backdrop-filter:blur(10px);">
+            <svg style="width:18px;height:18px;stroke:#1f2937;fill:none;stroke-width:2.5;">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Feed -->
+      <div class="feed-header" style="margin-bottom:16px;padding:0 4px;">
+        <h3 style="font-size:18px;font-weight:700;color:#1f2937;margin:0;">Ogólna taśma</h3>
+      </div>
+
       <article class="post" data-liked="0">
         <div class="post-head"><div class="post-author"><div class="avatar"></div><div><div><b>Fleet Ops</b> · <span class="meta">TSL</span></div><div class="meta">19 h · 🌍</div></div></div><button class="icon-btn">+ Obserwuj</button></div>
         <div class="post-body">Uruchomiliśmy 20 nowych zestawów C+E na trasie PL‑DE. Pierwsze załadunki w Poznaniu, rozładunki w Berlinie i Hamburgu.</div>
         <div class="post-img" style="background-image:url('https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=800&h=600&fit=crop');"></div>
         <div class="react-bar"><div class="react-counts"><span><b class="count-like">2716</b> poleceń</span><span><b class="count-comment">189</b> komentarzy</span><span><b class="count-share">10</b> udostępnień</span></div>
+          <div class="react-actions"><button class="react-btn btn-like" data-action="like"><svg class="ico"><use href="#i-like"/></svg><span>Poleć</span></button>
+          <button class="react-btn btn-comment" data-action="comment"><svg class="ico"><use href="#i-comment"/></svg><span>Skomentuj</span></button>
+          <button class="react-btn btn-share" data-action="share"><svg class="ico"><use href="#i-share"/></svg><span>Udostępnij</span></button></div></div>
+      </article>
+
+      <article class="post" data-liked="0">
+        <div class="post-head"><div class="post-author"><div class="avatar"></div><div><div><b>EuroTruck News</b> · <span class="meta">Branża</span></div><div class="meta">2 h · 🚛</div></div></div><button class="icon-btn">+ Obserwuj</button></div>
+        <div class="post-body">Nowe przepisy UE: Od 2025 roku wszystkie ciężarówki powyżej 3.5t będą musiały być wyposażone w systemy monitorowania czasu pracy. To duża zmiana dla kierowców i firm transportowych.</div>
+        <div class="post-img" style="background-image:url('https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=800&h=600&fit=crop');"></div>
+        <div class="react-bar"><div class="react-counts"><span><b class="count-like">892</b> poleceń</span><span><b class="count-comment">67</b> komentarzy</span><span><b class="count-share">23</b> udostępnień</span></div>
+          <div class="react-actions"><button class="react-btn btn-like" data-action="like"><svg class="ico"><use href="#i-like"/></svg><span>Poleć</span></button>
+          <button class="react-btn btn-comment" data-action="comment"><svg class="ico"><use href="#i-comment"/></svg><span>Skomentuj</span></button>
+          <button class="react-btn btn-share" data-action="share"><svg class="ico"><use href="#i-share"/></svg><span>Udostępnij</span></button></div></div>
+      </article>
+
+      <article class="post" data-liked="0">
+        <div class="post-head"><div class="post-author"><div class="avatar"></div><div><div><b>TransLogistics PL</b> · <span class="meta">Firma</span></div><div class="meta">5 h · 🇵🇱</div></div></div><button class="icon-btn">+ Obserwuj</button></div>
+        <div class="post-body">Szukamy doświadczonych kierowców C+E na trasy międzynarodowe. Oferujemy atrakcyjne wynagrodzenie, nowe pojazdy i stabilne zatrudnienie. Zgłoszenia przez DM lub na naszej stronie.</div>
+        <div class="post-img" style="background-image:url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=800&h=600&fit=crop');"></div>
+        <div class="react-bar"><div class="react-counts"><span><b class="count-like">456</b> poleceń</span><span><b class="count-comment">34</b> komentarzy</span><span><b class="count-share">12</b> udostępnień</span></div>
+          <div class="react-actions"><button class="react-btn btn-like" data-action="like"><svg class="ico"><use href="#i-like"/></svg><span>Poleć</span></button>
+          <button class="react-btn btn-comment" data-action="comment"><svg class="ico"><use href="#i-comment"/></svg><span>Skomentuj</span></button>
+          <button class="react-btn btn-share" data-action="share"><svg class="ico"><use href="#i-share"/></svg><span>Udostępnij</span></button></div></div>
+      </article>
+
+      <article class="post" data-liked="0">
+        <div class="post-head"><div class="post-author"><div class="avatar"></div><div><div><b>Green Transport</b> · <span class="meta">Ekologia</span></div><div class="meta">8 h · 🌱</div></div></div><button class="icon-btn">+ Obserwuj</button></div>
+        <div class="post-body">Elektryczne ciężarówki to przyszłość transportu! Tesla Semi już w produkcji, a Volvo i Mercedes nie pozostają w tyle. Sprawdź jak wygląda przyszłość branży transportowej.</div>
+        <div class="post-img" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop');"></div>
+        <div class="react-bar"><div class="react-counts"><span><b class="count-like">1247</b> poleceń</span><span><b class="count-comment">89</b> komentarzy</span><span><b class="count-share">45</b> udostępnień</span></div>
+          <div class="react-actions"><button class="react-btn btn-like" data-action="like"><svg class="ico"><use href="#i-like"/></svg><span>Poleć</span></button>
+          <button class="react-btn btn-comment" data-action="comment"><svg class="ico"><use href="#i-comment"/></svg><span>Skomentuj</span></button>
+          <button class="react-btn btn-share" data-action="share"><svg class="ico"><use href="#i-share"/></svg><span>Udostępnij</span></button></div></div>
+      </article>
+
+      <article class="post" data-liked="0">
+        <div class="post-head"><div class="post-author"><div class="avatar"></div><div><div><b>Road Safety EU</b> · <span class="meta">Bezpieczeństwo</span></div><div class="meta">12 h · 🛡️</div></div></div><button class="icon-btn">+ Obserwuj</button></div>
+        <div class="post-body">Ważne przypomnienie: Sprawdź stan opon przed każdą trasą! Zimowe opony obowiązkowe od 1 listopada do 31 marca. Bezpieczeństwo to priorytet!</div>
+        <div class="post-img" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop');"></div>
+        <div class="react-bar"><div class="react-counts"><span><b class="count-like">678</b> poleceń</span><span><b class="count-comment">42</b> komentarzy</span><span><b class="count-share">18</b> udostępnień</span></div>
+          <div class="react-actions"><button class="react-btn btn-like" data-action="like"><svg class="ico"><use href="#i-like"/></svg><span>Poleć</span></button>
+          <button class="react-btn btn-comment" data-action="comment"><svg class="ico"><use href="#i-comment"/></svg><span>Skomentuj</span></button>
+          <button class="react-btn btn-share" data-action="share"><svg class="ico"><use href="#i-share"/></svg><span>Udostępnij</span></button></div></div>
+      </article>
+
+      <article class="post" data-liked="0">
+        <div class="post-head"><div class="post-author"><div class="avatar"></div><div><div><b>Driver Community</b> · <span class="meta">Społeczność</span></div><div class="meta">1 dzień · 👥</div></div></div><button class="icon-btn">+ Obserwuj</button></div>
+        <div class="post-body">Spotkanie kierowców w Warszawie! 15 grudnia, godz. 18:00, Restauracja "Pod Kierowcą". Wymiana doświadczeń, networking i dobra zabawa. Kto się wybiera?</div>
+        <div class="post-img" style="background-image:url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=800&h=600&fit=crop');"></div>
+        <div class="react-bar"><div class="react-counts"><span><b class="count-like">334</b> poleceń</span><span><b class="count-comment">28</b> komentarzy</span><span><b class="count-share">7</b> udostępnień</span></div>
           <div class="react-actions"><button class="react-btn btn-like" data-action="like"><svg class="ico"><use href="#i-like"/></svg><span>Poleć</span></button>
           <button class="react-btn btn-comment" data-action="comment"><svg class="ico"><use href="#i-comment"/></svg><span>Skomentuj</span></button>
           <button class="react-btn btn-share" data-action="share"><svg class="ico"><use href="#i-share"/></svg><span>Udostępnij</span></button></div></div>
@@ -389,19 +516,19 @@
           </div>
         </div>
 
-        <!-- Languages section -->
-        <div class="section">
-          <div class="section-header">
-            <h2 class="section-title">Języki</h2>
-            <div class="section-actions">
-              <button class="section-action">
-                <svg class="ico"><use href="#i-plus"/></svg>
-              </button>
-              <button class="section-action">
-                <svg class="ico"><use href="#i-edit"/></svg>
-              </button>
-            </div>
-          </div>
+                 <!-- Languages section -->
+         <div class="section">
+           <div class="section-header">
+             <h2 class="section-title">Języki</h2>
+             <div class="section-actions">
+               <button class="section-action">
+                 <svg class="ico"><use href="#i-plus"/></svg>
+               </button>
+               <button class="section-action">
+                 <svg class="ico"><use href="#i-edit"/></svg>
+               </button>
+             </div>
+           </div>
                      <div class="languages-list">
             <div class="language-item">
               <div class="language-info">
@@ -427,6 +554,73 @@
             </div>
           </div>
         </div>
+
+         <!-- References section -->
+         <div class="section">
+           <div class="section-header">
+             <h2 class="section-title">Referencje</h2>
+             <div class="section-actions">
+               <button class="section-action">
+                 <svg class="ico"><use href="#i-plus"/></svg>
+               </button>
+               <button class="section-action">
+                 <svg class="ico"><use href="#i-edit"/></svg>
+               </button>
+             </div>
+           </div>
+           
+           <!-- Referencje udzielone -->
+           <div style="margin-bottom:20px;">
+             <h3 style="font-size:16px;font-weight:600;color:#1f2937;margin-bottom:12px;">Udzielone</h3>
+             <div class="references-list">
+               <div class="reference-item" style="display:flex;gap:12px;margin-bottom:16px;padding:12px;background:#fafafa;border-radius:12px;border:1px solid #f0f0f0;">
+                 <div class="reference-avatar" style="width:48px;height:48px;border-radius:50%;background:#e5e7eb;flex-shrink:0;"></div>
+                 <div class="reference-content" style="flex:1;">
+                   <div style="font-weight:600;font-size:14px;color:#1f2937;margin-bottom:4px;">Marek Kowalski</div>
+                   <div style="font-size:13px;color:#6b7280;margin-bottom:8px;">Kierowca C+E • TransLogistics</div>
+                   <div style="font-size:14px;color:#1f2937;line-height:1.4;">"Jun to bardzo solidny kierowca. Zawsze punktualny, dba o pojazd i ładunek. Polecam!"</div>
+                   <div style="font-size:12px;color:#6b7280;margin-top:8px;">2 miesiące temu</div>
+                 </div>
+               </div>
+               
+               <div class="reference-item" style="display:flex;gap:12px;margin-bottom:16px;padding:12px;background:#fafafa;border-radius:12px;border:1px solid #f0f0f0;">
+                 <div class="reference-avatar" style="width:48px;height:48px;border-radius:50%;background:#e5e7eb;flex-shrink:0;"></div>
+                 <div class="reference-content" style="flex:1;">
+                   <div style="font-weight:600;font-size:14px;color:#1f2937;margin-bottom:4px;">Anna Zielińska</div>
+                   <div style="font-size:13px;color:#6b7280;margin-bottom:8px;">Logistyk • EuroCargo</div>
+                   <div style="font-size:14px;color:#1f2937;line-height:1.4;">"Profesjonalne podejście do pracy, świetna komunikacja. Zawsze można na niego liczyć."</div>
+                   <div style="font-size:12px;color:#6b7280;margin-top:8px;">4 miesiące temu</div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           
+           <!-- Referencje otrzymane -->
+           <div>
+             <h3 style="font-size:16px;font-weight:600;color:#1f2937;margin-bottom:12px;">Otrzymane</h3>
+             <div class="references-list">
+               <div class="reference-item" style="display:flex;gap:12px;margin-bottom:16px;padding:12px;background:#fafafa;border-radius:12px;border:1px solid #f0f0f0;">
+                 <div class="reference-avatar" style="width:48px;height:48px;border-radius:50%;background:#e5e7eb;flex-shrink:0;"></div>
+                 <div class="reference-content" style="flex:1;">
+                   <div style="font-weight:600;font-size:14px;color:#1f2937;margin-bottom:4px;">Girteka Group</div>
+                   <div style="font-size:13px;color:#6b7280;margin-bottom:8px;">Pracodawca • Poznań</div>
+                   <div style="font-size:14px;color:#1f2937;line-height:1.4;">"Jun to doświadczony kierowca z doskonałą znajomością tras europejskich. Polecamy!"</div>
+                   <div style="font-size:12px;color:#6b7280;margin-top:8px;">1 miesiąc temu</div>
+                 </div>
+               </div>
+               
+               <div class="reference-item" style="display:flex;gap:12px;margin-bottom:16px;padding:12px;background:#fafafa;border-radius:12px;border:1px solid #f0f0f0;">
+                 <div class="reference-avatar" style="width:48px;height:48px;border-radius:50%;background:#e5e7eb;flex-shrink:0;"></div>
+                 <div class="reference-content" style="flex:1;">
+                   <div style="font-weight:600;font-size:14px;color:#1f2937;margin-bottom:4px;">Cartrex Trucking</div>
+                   <div style="font-size:13px;color:#6b7280;margin-bottom:8px;">Poprzedni pracodawca • Manila</div>
+                   <div style="font-size:14px;color:#1f2937;line-height:1.4;">"10 lat współpracy. Jun to niezawodny kierowca z doskonałymi umiejętnościami."</div>
+                   <div style="font-size:12px;color:#6b7280;margin-top:8px;">6 miesięcy temu</div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
        </div>
 
                  <!-- Profile Content Sections -->
@@ -801,6 +995,16 @@
        if (selectedTab) {
          selectedTab.classList.add('active');
        }
+     }
+
+     // Stories scrolling
+     function scrollStories() {
+       const container = document.querySelector('.stories-container');
+       const scrollAmount = 3 * 108; // 3 stories width
+       container.scrollBy({
+         left: scrollAmount,
+         behavior: 'smooth'
+       });
      }
 
      // Start
